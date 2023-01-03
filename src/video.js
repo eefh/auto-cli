@@ -1,11 +1,44 @@
+import videoshow from "videoshow";
+import path from "path";
 import fs from "fs";
-import { createFFmpeg, fetchFile } from "@ffmpeg/ffmpeg";
+import { readdir, stat } from "fs/promises";
 
-const ffmpeg = createFFmpeg({ log: true });
-export default async function generateVideo(images, text, output) {
-    await ffmpeg.load();
-    ffmpeg.FS("writeFile", "audio.wav", await fetchFile("./audio.wav"));
-    for (let i = 0; i < 60; i++) {
-        const num = `00${i}`.slice(-3);
+export default async function generateVideo(output) {
+    let audio = "./audio.wav";
+    let audioParams = {
+        fade: true,
+        loop: 14,
+        delay: 1,
+    };
+    let videoOption = {
+        loop: 12,
+    };
+    const imageSize = fs.readdirSync("./images").length;
+
+    let images = [];
+    for (let i = 0; i < imageSize; i++) {
+        images.push(`./images/image${i}.png`);
     }
+
+    await videoshow(images, videoOption)
+        .audio(audio, audioParams)
+        .save(output)
+        .on("start", (command) => {
+            console.log(`ffmpeg process started: ${command}`);
+        })
+        .on("error", (err) => {
+            console.log(`An error has occured: ${err}`);
+        })
+        .on("end", (output) => {
+            console.log(`Video created in: ${output}`);
+            fs.readdir("./images", (err, files) => {
+                if (err) throw err;
+
+                for (const file of files) {
+                    fs.unlink(path.join("./images", file), (err) => {
+                        if (err) throw err;
+                    });
+                }
+            });
+        });
 }
