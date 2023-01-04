@@ -16,6 +16,7 @@ const options = program.opts();
 const main = async () => {
     console.log("Generating story...");
     const story = await getStory(options.prompt);
+
     console.log("Generating images...");
     await generateImages(story.imagePrompts);
     console.log("Generating speech...");
