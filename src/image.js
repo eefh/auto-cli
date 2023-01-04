@@ -12,6 +12,7 @@ const openai = new OpenAIApi(configuration);
 
 export default async function generateImages(imagePrompts) {
     for (let i = 0; i < imagePrompts.length; i++) {
+        console.log(`Generating image ${i}/${imagePrompts.length}...`);
         await downloadImage(
             await generateImage(imagePrompts[i]),
             `./images/image${i}.png`

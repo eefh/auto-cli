@@ -11,7 +11,7 @@ export default async function generateVideo(output) {
         delay: 1,
     };
     let videoOption = {
-        loop: 12,
+        loop: 13,
     };
     const imageSize = fs.readdirSync("./images").length;
 

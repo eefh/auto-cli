@@ -1,3 +1,5 @@
+#! /usr/bin/env node
+
 import { Command } from "commander";
 import getStory from "./gpt.js";
 import generateImages from "./image.js";

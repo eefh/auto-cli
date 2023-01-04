@@ -22,12 +22,11 @@ export default async function getStory(prompt) {
     const filteredResult = extractBracketedStrings(story.text);
     const imagePrompts = filteredResult.imagePrompts;
     const storyText = filteredResult.text;
-    console.log(story.text);
     return { text: storyText, imagePrompts: imagePrompts };
 }
 
 const generate = (prompt) => {
-    return `"${prompt}" Generate an imaginative story video transcript based on this prompt. For each paragraph, create a text to photo generation prompt to create photorealistic images alongside the story (in square brackets) ex: [A photo of ] Make sure to not use any character names. The more descriptive, the better.`;
+    return `"${prompt}" Generate an imaginative story video transcript based on this prompt. For each paragraph, create a text to photo generation prompt to create photorealistic images alongside the story (in square brackets) ex: [A photo of ] Make sure to not use any character names, but make sure the photos have context for the setting of the story. The more descriptive, the better.`;
 };
 
 function extractBracketedStrings(input) {
