@@ -4,10 +4,10 @@ A command line interface (CLI) to create short AI generated story videos.
 
 # Usage
 
-To create a short AI generated story video, run the following command:
+To create a short AI generated story video, first configure .env in the project directory that contains OPENAI_API_KEY, SPEECH_KEY, SPEECH_REGION by running `npm run setup` and enter in your API keys. Then run the following command or use `npm link` to use the CLI globally:
 
 ```
-auto-cli -p "<Enter prompt>" -o "<Enter output.mp4>"
+node src/index.js -p "<Enter prompt>" -o "<Enter output.mp4>"
 ```
 
 # Options
@@ -20,7 +20,7 @@ auto-cli -p "<Enter prompt>" -o "<Enter output.mp4>"
 Create a short AI generated story video using the prompt "A day in the life of a superhero":
 
 ```
-auto-cli -p "A day in the life of a superhero" -o "superhero.mp4"
+node src/index.js -p "A day in the life of a superhero" -o "superhero.mp4"
 ```
 
 Create a short AI generated story video using the prompt "A romantic dinner for two on a beach":
