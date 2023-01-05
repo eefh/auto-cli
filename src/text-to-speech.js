@@ -1,5 +1,6 @@
 import sdk from "microsoft-cognitiveservices-speech-sdk";
 import generateVideo from "./video.js";
+
 export default async function generateSpeech(text, output) {
     let audioFile = "audio.wav";
 
@@ -19,7 +20,6 @@ export default async function generateSpeech(text, output) {
         (result) => {
             if (result.reason === sdk.ResultReason.SynthesizingAudioCompleted) {
                 console.log("Voice synthesis finished.");
-                generateVideo(output);
             } else {
                 console.error(
                     "Speech synthesis canceled, " +

@@ -12,9 +12,9 @@ export default async function generateVideo(output) {
             transition: { name: "fade" },
             duration: 12,
         },
-        audioFilePath: "./audio.wav",
-        height: 1080,
-        width: 1920,
+        audioFilePath: "./audio.mp3",
+        height: 480,
+        width: 640,
     };
     let clips = [];
     for (let i = 0; i < imageSize; i++) {
@@ -29,7 +29,6 @@ export default async function generateVideo(output) {
     }
     edit.clips = clips;
     await editly(edit);
-    await wipe();
 }
 
 const wipe = async () => {

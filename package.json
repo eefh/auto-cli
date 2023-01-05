@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/eefh/auto-cli#readme",
   "dependencies": {
+    "@aws-sdk/client-polly": "^3.241.0",
     "commander": "^9.4.1",
     "dotenv": "^16.0.3",
     "editly": "^0.14.2",

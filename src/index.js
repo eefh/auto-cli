@@ -3,6 +3,7 @@
 import { Command } from "commander";
 import getStory from "./gpt.js";
 import generateImages from "./image.js";
+import polly from "./polly.js";
 import generateSpeech from "./text-to-speech.js";
 import generateVideo from "./video.js";
 const program = new Command();
@@ -16,10 +17,9 @@ const options = program.opts();
 const main = async () => {
     console.log("Generating story...");
     const story = await getStory(options.prompt);
-
     console.log("Generating images...");
     await generateImages(story.imagePrompts);
     console.log("Generating speech...");
-    await generateSpeech(story.text, options.output);
+    await polly(story.text, options.output);
 };
 main();
