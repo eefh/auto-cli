@@ -29,6 +29,7 @@ export default async function generateVideo(output) {
     }
     edit.clips = clips;
     await editly(edit);
+    await wipe();
 }
 
 const wipe = async () => {
