@@ -13,8 +13,8 @@ export default async function generateVideo(output) {
             duration: 12,
         },
         audioFilePath: "./audio.mp3",
-        height: 480,
-        width: 640,
+        height: 1080,
+        width: 1920,
     };
     let clips = [];
     for (let i = 0; i < imageSize; i++) {
