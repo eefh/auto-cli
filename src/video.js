@@ -1,4 +1,3 @@
-import videoshow from "videoshow";
 import path from "path";
 import fs from "fs";
 import { readdir, stat } from "fs/promises";

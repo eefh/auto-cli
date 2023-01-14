@@ -25,10 +25,12 @@
   "homepage": "https://github.com/eefh/auto-cli#readme",
   "dependencies": {
     "@aws-sdk/client-polly": "^3.241.0",
+    "canvas": "^2.11.0",
     "commander": "^9.4.1",
     "dotenv": "^16.0.3",
     "editly": "^0.14.2",
     "ffmpeg": "^0.0.4",
+    "jimp": "^0.16.2",
     "microsoft-cognitiveservices-speech-sdk": "^1.24.1",
     "node-fetch": "^3.3.0",
     "openai": "^3.1.0",

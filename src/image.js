@@ -19,7 +19,8 @@ export default async function generateImages(imagePrompts) {
         );
     }
 }
-const downloadImage = async (url, path) => {
+export const downloadImage = async (url, path) => {
+    console.log("Download");
     const response = await fetch(url);
     const blob = await response.blob();
     const arrayBuffer = await blob.arrayBuffer();
@@ -27,7 +28,8 @@ const downloadImage = async (url, path) => {
     await fs.writeFile(path, buffer);
 };
 
-const generateImage = async (prompt) => {
+export const generateImage = async (prompt) => {
+    console.log("Generate");
     const response = await openai.createImage({
         prompt: prompt,
         n: 1,
